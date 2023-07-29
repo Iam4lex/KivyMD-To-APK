@@ -13,6 +13,9 @@ class Interface(MDBoxLayout):
     milli_seconds=0
     seconds=0
     hours=0
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        Flash.initialize()
     def increment_seconds(self, *args):
         Interface.milli_seconds+=10
         if(Interface.milli_seconds==100):
