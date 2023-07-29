@@ -4,7 +4,7 @@ from kivymd.app import MDApp
 from kivymd.uix.anchorlayout import MDAnchorLayout
 from kivymd.uix.behaviors import CommonElevationBehavior
 from kivymd.uix.boxlayout import MDBoxLayout
-from plyer import flash
+from flash_python_file import Flash
 
 class CustomMDAnchorLayout(ButtonBehavior, CommonElevationBehavior, MDAnchorLayout):
     pass
@@ -29,7 +29,7 @@ class Interface(MDBoxLayout):
             self.ids.flash_icon.icon="alarm-light-off"
             Interface.flashstate=1
             self.ids.progressbar.start()
-            flash.on()
+            Flash.on()
         else:
             Clock.unschedule(self.increment_seconds)
             Interface.milli_seconds=0
@@ -39,7 +39,7 @@ class Interface(MDBoxLayout):
             print("Flash Light Off")
             self.ids.flash_icon.icon = "alarm-light"
             self.ids.progressbar.stop()
-            flash.off()
+            Flash.off()
 class TestApp(MDApp):
     def change_style(self, appbar):
         if(self.theme_cls.theme_style=="Light"):
